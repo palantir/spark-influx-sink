@@ -1,0 +1,3 @@
+rootProject.name = 'spark-influx-sink'
+
+include 'spark-influx-sink'

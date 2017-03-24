@@ -1,0 +1,35 @@
+apply plugin: 'scala'
+
+apply plugin: 'com.palantir.baseline-eclipse'
+apply plugin: 'com.palantir.baseline-idea'
+apply plugin: 'com.palantir.configuration-resolver'
+
+apply from: "${rootDir}/gradle/publish-jars.gradle"
+
+jar {
+    manifest {
+        attributes(
+                "Implementation-Title"   : project.name,
+                "Implementation-Version" : project.version,
+                "Implementation-Vendor"  : "Palantir Technologies, Inc.")
+    }
+}
+
+dependencies {
+    compile "org.scala-lang:scala-library:${scalaVersion}"
+    compile "io.dropwizard.metrics:metrics-core:${dwMetricsVersion}"
+    compile "com.izettle:dropwizard-metrics-influxdb:${influxSinkVersion}"
+    compileOnly "org.apache.spark:spark-core_2.11:${sparkVersion}"
+    compileOnly "org.apache.httpcomponents:httpclient:${httpClientsVersion}"
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+// Ensure source folders exist
+eclipseClasspath.doLast {
+    eclipse.classpath.sourceSets.main.allSource.each { it.mkdirs() }
+    eclipse.classpath.sourceSets.main.output.each { it.mkdirs() }
+    eclipse.classpath.sourceSets.test.output.each { it.mkdirs() }
+}
