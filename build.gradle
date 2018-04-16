@@ -22,7 +22,7 @@ apply plugin: 'com.palantir.baseline-idea'
 apply plugin: 'com.palantir.git-version'
 
 dependencies {
-    baseline 'com.palantir.baseline:gradle-baseline-java-config:${baselineVersion}@zip'
+    baseline "com.palantir.baseline:gradle-baseline-java-config:${baselineVersion}@zip"
 }
 
 allprojects {
