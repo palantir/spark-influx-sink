@@ -10,6 +10,7 @@ buildscript {
     }
 
     dependencies {
+        classpath 'gradle.plugin.com.palantir:gradle-circle-style:1.1.2'
         classpath "com.palantir.baseline:gradle-baseline-java:${baselineVersion}"
         classpath "com.jfrog.bintray.gradle:gradle-bintray-plugin:${bintrayPluginVersion}"
         classpath "com.palantir.gradle.gitversion:gradle-git-version:${gitVersionVersion}"
@@ -20,6 +21,7 @@ buildscript {
 apply plugin: 'com.palantir.baseline-config'
 apply plugin: 'com.palantir.baseline-idea'
 apply plugin: 'com.palantir.git-version'
+apply plugin: 'com.palantir.circle.style'
 
 dependencies {
     baseline "com.palantir.baseline:gradle-baseline-java-config:${baselineVersion}@zip"
