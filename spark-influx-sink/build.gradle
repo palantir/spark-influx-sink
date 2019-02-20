@@ -18,7 +18,10 @@ jar {
 dependencies {
     compile "org.scala-lang:scala-library:${scalaVersion}"
     compile "io.dropwizard.metrics:metrics-core:${dwMetricsVersion}"
-    compile "com.izettle:dropwizard-metrics-influxdb:${influxSinkVersion}"
+    compile "com.izettle:dropwizard-metrics-influxdb:${influxSinkVersion}", {
+        // Pulls in 4.x of metrics-core, we want 3.x
+        exclude group: 'io.dropwizard.metrics', module: 'metrics-core'
+    }
     compileOnly "org.apache.spark:spark-core_2.11:${sparkVersion}"
 }
 
