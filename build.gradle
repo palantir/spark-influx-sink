@@ -14,7 +14,7 @@ buildscript {
         classpath "com.palantir.baseline:gradle-baseline-java:${baselineVersion}"
         classpath "com.jfrog.bintray.gradle:gradle-bintray-plugin:${bintrayPluginVersion}"
         classpath "com.palantir.gradle.gitversion:gradle-git-version:${gitVersionVersion}"
-        classpath "com.palantir.configurationresolver:gradle-configuration-resolver-plugin:${configurationResolverVersion}"
+        classpath 'com.palantir.configurationresolver:gradle-configuration-resolver-plugin:0.3.0'
     }
 }
 
