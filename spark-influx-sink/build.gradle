@@ -2,7 +2,6 @@ apply plugin: 'scala'
 
 apply plugin: 'com.palantir.baseline-eclipse'
 apply plugin: 'com.palantir.baseline-idea'
-apply plugin: 'com.palantir.configuration-resolver'
 
 apply from: "${rootDir}/gradle/publish-jars.gradle"
 
